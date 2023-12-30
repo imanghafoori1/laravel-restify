@@ -7,6 +7,7 @@ use Binaryk\LaravelRestify\Repositories\Repository;
 use Binaryk\LaravelRestify\Tests\Fixtures\Post\Post;
 use Binaryk\LaravelRestify\Tests\Fixtures\Post\PostRepository;
 use Binaryk\LaravelRestify\Tests\IntegrationTestCase;
+use Binaryk\LaravelRestify\Tests\Prototypes\PostPrototype;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -64,7 +65,7 @@ class TestMatch extends IntegrationTestCase
             ->assertOk();
     }
 
-    private function posts()
+    public function posts(): PostPrototype
     {
         Post::factory()->create([
             'is_active' => true,

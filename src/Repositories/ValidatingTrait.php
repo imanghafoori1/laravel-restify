@@ -130,10 +130,10 @@ trait ValidatingTrait
 
     public static function validatorForAttach(RestifyRequest $request, $resource = null, ?array $plainPayload = null)
     {
-        /** * @var Repository $on */
+        /** * @var $on Repository */
         $on = $resource ?? static::resolveWith(static::newModel());
 
-        /** * @var BelongsToMany $field */
+        /** * @var $field BelongsToMany */
         $field = $on::collectRelated()
             ->forManyToManyRelations($request)
             ->firstWhere('attribute', $request->relatedRepository);
